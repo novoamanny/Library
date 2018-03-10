@@ -8,8 +8,8 @@ debug: rebuild
 
 rebuild: clean all
 
-lms: main.o controller.o view.o library.o publication.o 
-	$(CXX) $(CXXFLAGS) -o lms main.o controller.o view.o library.o publication.o 
+lms: main.o controller.o view.o library.o 
+	$(CXX) $(CXXFLAGS) -o lms main.o controller.o view.o library.o 
 main.o: main.cpp *.h
 	$(CXX) $(CXXFLAGS) -c main.cpp
 controller.o: controller.cpp *.h
