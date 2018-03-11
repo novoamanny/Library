@@ -19,6 +19,7 @@ Publications
 
 Utility
 -------
+(8) Test System
 (9) Help
 (0) Exit
 )";

@@ -8,7 +8,7 @@ class Controller {
     public:
         Controller (Library& lib) : library(lib), view(View(library)) { }
         void click();
-        //void execute_cmd(int cmd);
+        void execute_cmd(int cmd);
     private:
         Library& library;
         View view;
