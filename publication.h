@@ -21,14 +21,16 @@
                  patron_phone(""),
                  checked_out(false) { }
 
+        string to_string();
+
      private:
-     string title;
-     string author;
-     string copyright;
-     string isbn;
-     string patron_name;
-     string patron_phone;
-     bool checked_out;   
+        string title;
+        string author;
+        string copyright;
+        string isbn;
+        string patron_name;
+        string patron_phone;
+        bool checked_out;   
  };
 
  #endif

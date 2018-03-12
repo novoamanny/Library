@@ -7,6 +7,7 @@ class View {
     public:
         View(Library& lib) : library(lib) { }
         void show_menu();
+        void list_publications();
     private:
         Library& library;
 };

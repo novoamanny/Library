@@ -11,6 +11,8 @@ using namespace std;
 class Library {
     public:
         void add_publication(Publication pub);
+        int number_of_publications();
+        string publication_to_string(int publication_index);
         void test();
 
     private:

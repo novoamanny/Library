@@ -60,4 +60,12 @@ void Controller::execute_cmd(int cmd){
 
           library.add_publication(Publication(title, author, copyright, isbn));
       }
+
+      else if (cmd == 2){
+          view.list_publications();
+      }
+
+      else if (cmd == 8){
+          library.test();
+      }
   }
