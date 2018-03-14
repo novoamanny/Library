@@ -22,6 +22,11 @@
                  checked_out(false) { }
 
         string to_string();
+        bool is_checked_out();
+        void check_out(string pat_name, string pat_phone);
+        void check_in();
+
+        class Invalid_transaction { };
 
      private:
         string title;

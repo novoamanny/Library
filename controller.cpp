@@ -18,6 +18,8 @@ void Controller::click() {
 } 
 
 void Controller::execute_cmd(int cmd){
+
+    // A D D  A  P U B L I C A T I O N
       if (cmd == 1){
           string title, author, isbn, copyright;
 
@@ -61,11 +63,73 @@ void Controller::execute_cmd(int cmd){
           library.add_publication(Publication(title, author, copyright, isbn));
       }
 
+    // L I S T  A L L  P U B L I C A T I O N S
       else if (cmd == 2){
-          view.list_publications();
+         // view.list_publications();
+
+         try{
+             view.list_publications();
+         } catch (View::Invalid_transaction e){
+             cout << "\nERROR: No Current Publications to Display!" << endl;
+         }
       }
 
+    // C H E C K  O U T
+      else if (cmd == 3){
+          view.list_publications();
+          
+
+          int index;
+          string pat_name, pat_phone;
+
+          cout << endl << "Enter Publication Index Number: ";
+          cin >> index;
+          cin.ignore(65535, '\n'); // consume \n
+            
+            // Check if the index number is out of range
+          if (0 > index || index >= library.number_of_publications()){
+              return;
+          }
+
+            cout << "Patron name? ";
+            getline(cin, pat_name);
+            if (pat_name.size() == 0) return;
+
+            cout << "Patron phone? ";
+            getline(cin, pat_phone);
+            if (pat_phone.size() == 0) return;
+
+            try {
+            library.check_out(index, pat_name, pat_phone);
+            } catch(Publication::Invalid_transaction e) {
+             cout << "ERROR: That publication is already checked out!" << endl;
+            } 
+        }
+
+    // C H E C K  I N
+      else if (cmd == 4){
+            view.list_publications();
+
+            int index;
+
+            cout << endl << "Enter Publication Index Number: ";
+            cin >> index;
+            cin.ignore(65535, '\n'); // consume \n
+            
+            // Check if the index number is out of range
+          if (0 > index || index >= library.number_of_publications()){
+              return;
+          }
+
+            try {
+                library.check_in(index);
+            } catch(Publication::Invalid_transaction e) {
+                cout << "ERROR: That publication is already checked in!" << endl;
+            }
+        }
+
+    // T E S T
       else if (cmd == 8){
-          library.test();
-      }
+            library.test();
+       }
   }

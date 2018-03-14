@@ -12,6 +12,14 @@ string Library::publication_to_string(int publication_index){
     return publications[publication_index].to_string();
 }
 
+void Library::check_out(int pub_index, string pat_name, string pat_phone){
+    publications[pub_index].check_out(pat_name, pat_phone);
+}
+
+void Library::check_in(int pub_index){
+    publications[pub_index].check_in();
+}
+
 void Library::test() {
  add_publication(Publication("The Firm", "John Grisham", "1991", "0440245923"));
  add_publication(Publication("Foundation", "Isaac Asimov", "1942", "0385177259"));

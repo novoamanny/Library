@@ -35,10 +35,24 @@ L I S T  O F  A L L  P U B L I C A T I O N S
     )";
 
     cout << header;
-
+    /*
     int i;
 
     for (i = 0; i < library.number_of_publications(); i++){
         cout << "\n" << i << ")" << library.publication_to_string(i);
     }
+
+        // Need to modify code for exception
+    */
+ if (library.number_of_publications() <= 0){
+     throw Invalid_transaction();
+ }
+ else {
+    int i;
+
+    for (i = 0; i < library.number_of_publications(); i++){
+        cout << "\n" << i << ")" << library.publication_to_string(i);
+    }
+ }
+ 
 }
