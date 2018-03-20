@@ -6,7 +6,7 @@
 
  string Publication::to_string(){
      string pub = "\"" + title + "\"" + " by " + author + ", " + copyright + 
-     "ISBN: " + isbn;
+     ", ISBN: " + isbn + ", (" + target_genre.to_string() + ", " + target_media.to_string() + ", " + target_age.to_string() + ")";
    if (checked_out) {
       pub += "\nChecked out to " + patron_name + " (" + patron_phone + ")\n";
    }

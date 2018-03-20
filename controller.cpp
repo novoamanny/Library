@@ -1,6 +1,9 @@
 #include "controller.h"
 #include "view.h"
 #include "library.h"
+#include "age.h"
+#include "media.h"
+#include "genre.h"
 #include <iostream>
 #include <string>
 
@@ -22,6 +25,7 @@ void Controller::execute_cmd(int cmd){
     // A D D  A  P U B L I C A T I O N
       if (cmd == 1){
           string title, author, isbn, copyright;
+          int age, genre, media;
 
         
           cout << "Title?" << endl;
@@ -51,7 +55,7 @@ void Controller::execute_cmd(int cmd){
               return;
           }
 
-          cout << "Copyright?" << endl;
+          cout << "Copyright date?" << endl;
           cout << "-> ";
           getline(cin, copyright);
           cout << endl;
@@ -60,7 +64,28 @@ void Controller::execute_cmd(int cmd){
               return;
           }
 
-          library.add_publication(Publication(title, author, copyright, isbn));
+          for (int i = 0; i < Genre::num_genres; ++i) 
+            cout << "  " << i << ") " << Genre(i).to_string() << endl;
+            cout << "Genre? ";
+            cin >> genre;
+            cin.ignore(65535, '\n'); // consume \n
+            if (0 > genre || genre >= Genre::num_genres) return;
+
+        for (int i = 0; i < Media::num_media; ++i) 
+            cout << "  " << i << ") " << Media(i).to_string() << endl;
+            cout << "Media? ";
+            cin >> media;
+            cin.ignore(65535, '\n'); // consume \n
+            if (0 > media || media >= Media::num_media) return;
+
+        for (int i = 0; i < Age::num_ages; ++i) 
+            cout << "  " << i << ") " << Age(i).to_string() << endl;
+            cout << "Age? ";
+            cin >> age;
+            cin.ignore(65535, '\n'); // consume \n
+            if (0 > age || age >= Age::num_ages) return;
+
+          library.add_publication(Publication(title, author, copyright, isbn, genre, media, age));
       }
 
     // L I S T  A L L  P U B L I C A T I O N S

@@ -3,6 +3,9 @@
 
  #include <iostream>
  #include <string>
+ #include "age.h"
+ #include "media.h"
+ #include "genre.h"
 
  using namespace std;
 
@@ -11,7 +14,10 @@
      Publication(string p_title, 
                  string p_author, 
                  string p_copyright,
-                 string p_isbn) : 
+                 string p_isbn,
+                 Genre p_target_genre,
+                 Media p_target_media,
+                 Age p_target_age) : 
 
                  title(p_title), 
                  author(p_author),
@@ -19,7 +25,10 @@
                  isbn(p_isbn), 
                  patron_name(""),
                  patron_phone(""),
-                 checked_out(false) { }
+                 checked_out(false),
+                 target_genre(p_target_genre),
+                 target_media(p_target_media),
+                 target_age(p_target_age) { }
 
         string to_string();
         bool is_checked_out();
@@ -35,7 +44,10 @@
         string isbn;
         string patron_name;
         string patron_phone;
-        bool checked_out;   
+        bool checked_out;
+        Age target_age;
+        Media target_media;
+        Genre target_genre;   
  };
 
  #endif
