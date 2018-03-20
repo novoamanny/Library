@@ -8,6 +8,7 @@ class View {
         View(Library& lib) : library(lib) { }
         void show_menu();
         void list_publications();
+        void help();
 
         class Invalid_transaction { };
     private:

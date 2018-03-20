@@ -70,7 +70,7 @@ void Controller::execute_cmd(int cmd){
          try{
              view.list_publications();
          } catch (View::Invalid_transaction e){
-             cout << "\nERROR: No Current Publications to Display!" << endl;
+             cerr << "\nERROR: No Current Publications to Display!" << endl;
          }
       }
 
@@ -102,7 +102,7 @@ void Controller::execute_cmd(int cmd){
             try {
             library.check_out(index, pat_name, pat_phone);
             } catch(Publication::Invalid_transaction e) {
-             cout << "ERROR: That publication is already checked out!" << endl;
+             cerr << "ERROR: That publication is already checked out!" << endl;
             } 
         }
 
@@ -124,12 +124,25 @@ void Controller::execute_cmd(int cmd){
             try {
                 library.check_in(index);
             } catch(Publication::Invalid_transaction e) {
-                cout << "ERROR: That publication is already checked in!" << endl;
+                cerr << "ERROR: That publication is already checked in!" << endl;
             }
         }
 
     // T E S T
       else if (cmd == 8){
             library.test();
+       }
+    
+    // H E L P
+       else if (cmd == 9){
+           view.help();
+       }
+    // E X I T
+       else if (cmd == 0){
+           // E X I T
+       }
+
+       else{
+           cerr << "**** Invalid command - type 9 for help" << endl << endl;
        }
   }
