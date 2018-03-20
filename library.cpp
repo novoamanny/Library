@@ -20,6 +20,18 @@ void Library::check_in(int pub_index){
     publications[pub_index].check_in();
 }
 
+void Library::add_patron(Patron pat){
+    patrons.push_back(pat);
+}
+
+int Library::number_of_patrons(){
+    return patrons.size();
+}
+
+string Library::patrons_to_string(int pat_index){
+    return patrons[pat_index].to_string();
+}
+
 void Library::test() {
  add_publication(Publication("The Firm", "John Grisham", "1991", "0440245923", Genre::fiction, Media::book, Age::adult));
  add_publication(Publication("Foundation", "Isaac Asimov", "1942", "0385177259", Genre::fiction, Media::book, Age::adult));

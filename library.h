@@ -2,6 +2,7 @@
 #define __LIBRARY_H
 
 #include "publication.h"
+#include "patron.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -16,11 +17,15 @@ class Library {
         int number_of_publications();
         string publication_to_string(int publication_index);
         void test();
+        void add_patron(Patron pat);
+        int number_of_patrons();
+        string patrons_to_string(int pat_index);
         
         //class Invalid_transaction { };
 
     private:
         vector <Publication> publications;
+        vector <Patron> patrons;
 
 };
 #endif

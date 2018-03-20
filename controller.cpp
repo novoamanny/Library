@@ -153,6 +153,24 @@ void Controller::execute_cmd(int cmd){
             }
         }
 
+    else if (cmd == 5) { // Add patron
+    string name, number;
+
+    cout << "Name? ";
+    getline(cin, name);
+    if (name.size() == 0) return;
+
+    cout << "Phone number? ";
+    getline(cin, number);
+    if (number.size() == 0) return;
+
+    library.add_patron(Patron(name, number));
+    
+ } 
+    else if (cmd == 6) { // List all patrons
+    view.list_patrons();
+    }
+
     // T E S T
       else if (cmd == 8){
             library.test();

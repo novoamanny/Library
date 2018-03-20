@@ -9,6 +9,7 @@ class View {
         void show_menu();
         void list_publications();
         void help();
+        void list_patrons();
 
         class Invalid_transaction { };
     private:
