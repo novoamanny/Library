@@ -1,6 +1,8 @@
 #include "controller.h"
 #include "view.h"
 #include "library.h"
+#include "publication.h"
+#include "dialogs.h"
 #include "age.h"
 #include "media.h"
 #include "genre.h"
@@ -12,10 +14,10 @@ using namespace std;
 void Controller::click() {
   int cmd = -1;
   while (cmd != 0) {
-    view.show_menu();
-    cout << "Command? ";
-    cin >> cmd;
-    cin.ignore(65535, '\n'); // consume \n
+    cmd = view.select_from_menu();
+    //cout << "Command? ";
+   // cin >> cmd;
+   // cin.ignore(65535, '\n'); // consume \n
     execute_cmd(cmd);
   }
 } 

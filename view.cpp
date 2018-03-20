@@ -1,10 +1,14 @@
 #include "view.h"
+#include "genre.h"
+#include "age.h"
+#include "media.h"
+#include "dialogs.h"
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-void View::show_menu() {
+int View::select_from_menu() {
     string menu = R"(
 =================================
 CSE1325 Library Management System
@@ -26,7 +30,14 @@ Utility
 (0) Exit
 )";
 
-    cout << menu << endl;
+    //cout << menu << endl;
+
+    string result = Dialogs::input(menu, "Main Menu");
+    try {
+        return (result == "CANCEL") ? 0 : stoi(result);
+    } catch (...){
+        return -1;
+    }
 }
 
 void View::list_publications(){
